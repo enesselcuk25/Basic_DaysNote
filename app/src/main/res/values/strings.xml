@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Day Note</string>
+    <string name="notes">Notes</string>
+    <string name="home_floatingaction">home_floatingaction</string>
+    <string name="image_back">image_back</string>
+    <string name="title_write">Title Write</string>
+    <string name="detail_write">Detail Write</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

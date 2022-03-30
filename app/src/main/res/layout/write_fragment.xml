@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="noteData"
+            type="com.eneselcuk.daynote.model.NoteData" />
+
+        <variable
+            name="writeFragment"
+            type="com.eneselcuk.daynote.ui.fragment.noteWriteFragment.NoteWriteFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/write_home_left_backround"
+            android:contentDescription="@string/image_back"
+            android:onClick="@{() -> writeFragment.backClick()}"
+            android:src="@drawable/ic_baseline_keyboard_arrow_left"
+            app:layout_constraintBottom_toTopOf="@id/edittext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/write_home_left_backround"
+            android:contentDescription="@string/image_back"
+            android:onClick="@{() -> writeFragment.addClick()}"
+            android:src="@drawable/ic_baseline_done_outline"
+            app:layout_constraintBottom_toTopOf="@id/edittext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:autofillHints="postalAddress"
+            android:background="@android:color/transparent"
+            android:hint="@string/title_write"
+            android:inputType="textMultiLine"
+            android:paddingHorizontal="24dp"
+            android:text="@{noteData.title}"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_back"
+            tools:ignore="LabelFor"
+            tools:text="merhaba ben enes naber koçum" />
+
+        <TextView
+            android:id="@+id/textView_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:paddingHorizontal="24dp"
+            android:text="@{noteData.time}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edittext"
+            tools:text="mar 26 2022" />
+
+        <EditText
+            android:id="@+id/edittext_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:autofillHints="postalAddress"
+            android:background="@android:color/transparent"
+            android:hint="@string/detail_write"
+            android:inputType="textMultiLine"
+            android:paddingHorizontal="24dp"
+            android:text="@{noteData.content}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView_time"
+            tools:ignore="LabelFor"
+            tools:text="Lyrics EW, BABY KAELY EW, BABY KAELY, EW, EW BABY KAELY, EW Lyrics,
+            BABY KAELY EW Lyrics, BABY KAELY Lyrics EW, EW BABY KAELY Lyrics, EW Lyrics
+            BABY KAELY, Hello My Name Is Zuzie, hello my name is zuzie tiktok song,
+            ew baby kaely tiktok song, hello my name is zuzie tiktok, hello my name is
+            zuzie, baby kaely ew tiktok, ew baby kaely, Lyrics EW BABY KAELY, Lyrics BABY
+            KAELY  " />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
+
