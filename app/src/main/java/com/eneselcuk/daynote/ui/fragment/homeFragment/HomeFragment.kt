@@ -73,16 +73,10 @@ class HomeFragment : Fragment() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
                 val noteData = rcAdapter.currentList[position]
-                homeViewModel.deleteNote(noteData.id)
+                noteData.id.let { homeViewModel.deleteNote(it) }
 
                 view?.let {
-                    Snackbar.make(it, "deleted", Snackbar.LENGTH_SHORT).apply {
-                        setAction("undo") {
-                            homeViewModel.addNote(noteData)
-                            rcAdapter.notifyDataSetChanged()
-                        }
-                        show()
-                    }
+                    Snackbar.make(it, "deleted", Snackbar.LENGTH_SHORT).show()
                 }
             }
         }
@@ -92,13 +86,15 @@ class HomeFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        homeViewModel.allNote()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
     }
 
-    override fun onResume() {
-        super.onResume()
-        rcAdapter.notifyDataSetChanged()
-    }
+
 }

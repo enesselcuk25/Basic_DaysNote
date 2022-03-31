@@ -13,16 +13,13 @@ import com.eneselcuk.daynote.R
 import com.eneselcuk.daynote.databinding.FragmentDetailBinding
 import com.eneselcuk.daynote.model.NoteData
 import com.eneselcuk.daynote.ui.fragment.viewModel.HomeViewModel
-import com.eneselcuk.daynote.util.DataFormat.dataFormat
-import java.text.DateFormat
+import com.eneselcuk.daynote.util.DataFormat.dayToday
 
 
 class DetailFragment : Fragment() {
     private var binding: FragmentDetailBinding? = null
     private val safeArgs: DetailFragmentArgs by navArgs()
-
     private val viewModel: HomeViewModel by activityViewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,16 +49,13 @@ class DetailFragment : Fragment() {
     }
 
     fun updateClick() {
-
-
-
         val noteDatas = NoteData(title = binding?.edittextDetailTitle?.text.toString(),
             content = binding?.edittextDetailContent?.text.toString(),
-            time = dataFormat, id = safeArgs.noteDetail.id)
-
+            time = dayToday, id = safeArgs.noteDetail.id
+//            , backround = R.color.white
+        )
         binding?.noteData = noteDatas
         viewModel.updateNote(noteDatas)
-
         findNavController().navigate(R.id.action_detailFragment_to_homeFragment)
     }
 }

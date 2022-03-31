@@ -23,6 +23,4 @@ class NoteAdapter : ListAdapter<NoteData, MyViewHolder>(DiffUtilCallBack) {
         holder.bind(myPosition, onClick)
 
     }
-
-
 }

@@ -1,7 +1,8 @@
 package com.eneselcuk.daynote.util
 
-import java.text.DateFormat
+import java.util.*
 
 object DataFormat {
-    val dataFormat = DateFormat.getDateInstance().format("MMMM d, yyyy ")
+    private val date = Calendar.getInstance()
+    var dayToday = android.text.format.DateFormat.format("EE dd, yyyy", date).toString()
 }

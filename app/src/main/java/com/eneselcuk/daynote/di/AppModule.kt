@@ -1,7 +1,6 @@
 package com.eneselcuk.daynote.di
 
 import android.app.Application
-import android.content.Context
 import com.eneselcuk.daynote.data.NoteDao
 import com.eneselcuk.daynote.data.NoteDatabase
 import com.eneselcuk.daynote.repository.NoteRepository
@@ -14,7 +13,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
 
     @Singleton
     @Provides

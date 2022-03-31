@@ -13,7 +13,6 @@ data class NoteData(
     @ColumnInfo(name = "time") val time: String,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "content") val content: String,
-
-    ): Parcelable
+) : Parcelable
 
 

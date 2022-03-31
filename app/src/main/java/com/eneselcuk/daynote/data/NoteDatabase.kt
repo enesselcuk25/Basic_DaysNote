@@ -1,14 +1,13 @@
 package com.eneselcuk.daynote.data
 
 import android.content.Context
-import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.eneselcuk.daynote.model.NoteData
 
 
-@Database(entities = [NoteData::class], version = 2, exportSchema = false)
+@Database(entities = [NoteData::class], version = 1, exportSchema = false)
 abstract class NoteDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDao
 

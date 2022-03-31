@@ -13,8 +13,9 @@ import com.eneselcuk.daynote.R
 import com.eneselcuk.daynote.databinding.WriteFragmentBinding
 import com.eneselcuk.daynote.model.NoteData
 import com.eneselcuk.daynote.ui.fragment.viewModel.HomeViewModel
-import com.eneselcuk.daynote.util.DataFormat.dataFormat
+import com.eneselcuk.daynote.util.DataFormat
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class NoteWriteFragment : Fragment() {
@@ -45,16 +46,17 @@ class NoteWriteFragment : Fragment() {
     }
 
     fun addClick() {
-        val noteDatas = NoteData(id = 0, title =binding?.edittext?.text.toString(),
+        val noteDatas = NoteData(
+            id = 0, title = binding?.edittext?.text.toString(),
             content = binding?.edittextDetail?.text.toString(),
-            time = dataFormat
+            time = DataFormat.dayToday
         )
         binding?.noteData = noteDatas
         viewModel.addNote(noteDatas)
         Toast.makeText(requireContext(), "added", Toast.LENGTH_SHORT).show()
     }
 
-    fun backClick(){
+    fun backClick() {
         findNavController().navigate(R.id.action_noteWriteFragment_to_homeFragment)
     }
 

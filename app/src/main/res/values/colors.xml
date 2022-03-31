@@ -9,7 +9,13 @@
     <color name="white">#FFFFFFFF</color>
 
 
-
     <color name="warm_pick">#FFAB91</color>
     <color name="darkGrey">#373737</color>
+
+
+    <color name="somewhere_in_a_fairytale">#CF94DA</color>
+    <color name="sachet_pink">#F48FB1</color>
+    <color name="orchid_hue">#E7ED9B</color>
+    <color name="faded_poster">#81DEEA</color>
+    <color name="blue_green_gem">#7FCBC3</color>
 </resources>

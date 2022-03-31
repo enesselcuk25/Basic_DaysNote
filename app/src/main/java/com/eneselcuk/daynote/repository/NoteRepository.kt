@@ -12,12 +12,6 @@ class NoteRepository @Inject constructor(private val noteDao: NoteDao) {
         noteDao.addNote(noteData)
     }
 
-    suspend fun swipeAddNote(noteData: NoteData):Long {
-       return noteDao.swipeAddNote(noteData)
-    }
-
-    suspend fun getAllSaveNote() = noteDao.allNote()
-
     suspend fun deleteNote(key:Int) = noteDao.delete(key)
 
     suspend fun updateNote(noteData: NoteData) = noteDao.update(noteData)

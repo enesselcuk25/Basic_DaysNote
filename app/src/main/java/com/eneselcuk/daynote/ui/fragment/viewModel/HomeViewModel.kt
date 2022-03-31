@@ -16,24 +16,11 @@ class HomeViewModel @Inject constructor(private val repository: NoteRepository) 
     val notaData: LiveData<List<NoteData>>
         get() = _noteData
 
-//    private val _deleteNote: MutableLiveData<Long> = MutableLiveData()
-//    val deleteNote: LiveData<Long>
-//        get() = _deleteNote
-//
-//    private val _click: MutableLiveData<NoteData?> = MutableLiveData()
-//    val click: LiveData<NoteData?>
-//        get() = _click
-//
-//    private val _swipe: MutableLiveData<List<NoteData>> = MutableLiveData()
-//    val swipe: LiveData<List<NoteData>> = _swipe
-//
-
     init {
         allNote()
-
     }
 
-    private fun allNote() {
+    fun allNote() {
         viewModelScope.launch {
             _noteData.value = repository.getAll()
         }
@@ -56,5 +43,7 @@ class HomeViewModel @Inject constructor(private val repository: NoteRepository) 
             repository.updateNote(noteData)
         }
     }
+
+
 
 }
