@@ -35,13 +35,19 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        rcAdapter = NoteAdapter()
+        //  rcAdapter = NoteAdapter()
 
         binding?.apply {
             homeToWriteClick = this@HomeFragment
             lifecycleOwner = viewLifecycleOwner
             viewModel = homeViewModel
+
+            rcAdapter = NoteAdapter(NoteAdapter.DayClickListener { noteData ->
+                homeViewModel.onClickListener(noteData)
+            })
+
             recyclerView.adapter = rcAdapter
+
         }
 
         onClick()
@@ -53,10 +59,14 @@ class HomeFragment : Fragment() {
     }
 
     private fun onClick() {
-        rcAdapter.onClick = {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(
-                it))
-        }
+
+        homeViewModel.click.observe(viewLifecycleOwner, { data ->
+            data?.let {
+                this.findNavController()
+                    .navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(data))
+            }
+            homeViewModel.onClickNavigated()
+        })
     }
 
     private fun swipe() {
@@ -73,8 +83,7 @@ class HomeFragment : Fragment() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
                 val noteData = rcAdapter.currentList[position]
-                noteData.id.let { homeViewModel.deleteNote(it) }
-
+                noteData?.id.let { it?.let { it1 -> homeViewModel.deleteNote(it1) } }
                 view?.let {
                     Snackbar.make(it, "deleted", Snackbar.LENGTH_SHORT).show()
                 }

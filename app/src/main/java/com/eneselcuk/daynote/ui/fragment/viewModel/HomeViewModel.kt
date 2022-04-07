@@ -16,6 +16,10 @@ class HomeViewModel @Inject constructor(private val repository: NoteRepository) 
     val notaData: LiveData<List<NoteData>>
         get() = _noteData
 
+    private val _click: MutableLiveData<NoteData?> = MutableLiveData()
+    val click: LiveData<NoteData?>
+        get() = _click
+
     init {
         allNote()
     }
@@ -44,6 +48,13 @@ class HomeViewModel @Inject constructor(private val repository: NoteRepository) 
         }
     }
 
+    fun onClickListener(noteData: NoteData) {
+        _click.postValue(noteData)
+    }
+
+    fun onClickNavigated() {
+        _click.postValue(null)
+    }
 
 
 }

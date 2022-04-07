@@ -12,7 +12,7 @@
 
         <variable
             name="click"
-            type="com.eneselcuk.daynote.ui.fragment.viewModel.HomeViewModel" />
+            type="com.eneselcuk.daynote.adapter.NoteAdapter.DayClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:onClick="@{() -> click.onClick(noteTexts)}"
         android:layout_marginHorizontal="150dp"
         android:background="@drawable/view_item_notes_corner6"
         android:maxWidth="160dp">

@@ -7,8 +7,8 @@ import com.eneselcuk.daynote.model.NoteData
 
 
 @BindingAdapter("app:listAdapter")
-fun bindRecyclerView(recyclerView: RecyclerView, noteData: List<NoteData>?) {
-    val adapter = recyclerView.adapter as NoteAdapter
+fun bindRecyclerView(recyclerView: RecyclerView?, noteData: List<NoteData>?) {
+    val adapter = recyclerView?.adapter as NoteAdapter
     adapter.submitList(noteData)
 }
 

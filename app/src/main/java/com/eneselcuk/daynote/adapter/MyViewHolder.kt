@@ -8,10 +8,11 @@ class MyViewHolder(private val binding: ViewItemNotesBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(
         noteData: NoteData,
-        onClick: (NoteData) -> Unit,
+        onClickListener: NoteAdapter.DayClickListener
     ) {
         binding.noteTexts = noteData
-        binding.root.setOnClickListener { onClick(noteData) }
+        binding.click = onClickListener
+        binding.executePendingBindings()
 
     }
 }

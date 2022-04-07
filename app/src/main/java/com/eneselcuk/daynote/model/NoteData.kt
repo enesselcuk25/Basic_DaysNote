@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "note_data")
 @Parcelize
 data class NoteData(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) var id: Int,
     @ColumnInfo(name = "time") val time: String,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "content") val content: String,
