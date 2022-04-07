@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -53,7 +52,7 @@ class NoteWriteFragment : Fragment() {
         )
         binding?.noteData = noteDatas
         viewModel.addNote(noteDatas)
-        Toast.makeText(requireContext(), "added", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_noteWriteFragment_to_homeFragment)
     }
 
     fun backClick() {

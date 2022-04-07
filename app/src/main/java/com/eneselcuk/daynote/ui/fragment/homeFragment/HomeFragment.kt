@@ -55,7 +55,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun onClick() {
-
         homeViewModel.click.observe(viewLifecycleOwner, { data ->
             data?.let {
                 this.findNavController()
