@@ -35,19 +35,15 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //  rcAdapter = NoteAdapter()
+        rcAdapter = NoteAdapter(NoteAdapter.DayClickListener { noteData ->
+            homeViewModel.onClickListener(noteData)
+        })
 
         binding?.apply {
             homeToWriteClick = this@HomeFragment
             lifecycleOwner = viewLifecycleOwner
             viewModel = homeViewModel
-
-            rcAdapter = NoteAdapter(NoteAdapter.DayClickListener { noteData ->
-                homeViewModel.onClickListener(noteData)
-            })
-
             recyclerView.adapter = rcAdapter
-
         }
 
         onClick()
